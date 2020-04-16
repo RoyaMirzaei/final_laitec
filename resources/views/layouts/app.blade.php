@@ -18,46 +18,51 @@
 
     <!-- Styles -->
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <div id="app">
         <section class="menu">
-            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+           <h1 class="d-none">{{$user=\Illuminate\Support\Facades\Auth::check()}}</h1>
+    @if($user)
+
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <!-- Brand -->
+                <a class="navbar-brand text-danger"href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
                 <!-- Toggler/collapsibe Button -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <!-- Navbar links -->
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Home</a>
+                            <a class="nav-link"  target="_blank" href="{{route('setting.index')}}">setting</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" text-white href="#">about</a>
+                            <a class="nav-link" href="#">slider</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">gallery</a>
+                            <a class="nav-link" href="#">about</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">contact</a>
+                            <a class="nav-link" href="#">contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="#">news</a>
+                            <a class="nav-link" href="#">gallery</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                        <li class="nav-item">
+                            <a class="nav-link"  target="_blank" href="{{route('shopping')}}">show_website</a>
                         </li>
 
                     </ul>
                 </div>
             </nav>
+    @endif
         </section>
-
 
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -67,6 +72,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+
     </div>
 </body>
 </html>
