@@ -1,14 +1,13 @@
 @extends('layouts.app')
 @section('content')
-    <section class="col-6 offset-2 mt-3">
-
-            @if(session()->has('delete'))
-                <section class="alert alert-danger" dir="rtl">
-                    <h5>
-                        {{session('delete')}}
-                    </h5>
-                </section>
-            @endif
+    @if(session()->has('setting'))
+        <section class="col-6 offset-3 alert alert-danger" >
+            <h5 class="text-danger text-center" dir="rtl">
+                {{session('setting')}}
+            </h5>
+        </section>
+    @endif
+    <section class="col-6 offset-3 mt-3">
 
   <table class="table table-dark table-hover">
       <thead class="table table-info">
@@ -27,11 +26,11 @@
     @foreach($setting as $item)
       <tr>
           <td>{{$item->id}}</td>
-          <td nowrap>{{$item->title}}</td>
-          <td>{{$item->author}}</td>
+          <td>{{Str::limit($item->title,5)}}</td>
+          <td>{{Str::limit($item->author,5)}}</td>
           <td>{{Str::limit($item->keywords,10)}}</td>
           <td>{{Str::limit($item->description,10)}}</td>
-          <td><a href="{{route('setting.show',$item->id)}}" >show</a></td>
+          <td><a href="{{route('setting.show',$item->id)}}" target="_blank" class="btn btn-success">show</a></td>
           <td>{!! Form::open(['route' => ['setting.destroy', $item->id ],'method' => 'delete']) !!}
               {!! Form::submit('delete', ['class' => 'btn btn-danger']) !!}
               {!! Form::close() !!}
@@ -40,7 +39,7 @@
       @endforeach
     </tbody>
   </table>
-                <section class="col-10 offset-2">
+                <section class="col-12 offset-0">
                 <a href="{{route('setting.create')}}" class="btn btn-danger btn-block">create</a></section>
     </section>
 

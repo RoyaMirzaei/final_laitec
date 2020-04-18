@@ -1,10 +1,17 @@
 @extends('layouts.app')
 @section('content')
     @if ($errors -> any())
-        <section class="col-6  offset-3 mt-5 mb-5 bg-warning p-3" dir="rtl">
+        <section class="col-6 offset-3 alert alert-danger" dir="rtl">
             @foreach($errors->all() as $item)
                 <h4 class="text-center text-black-50" style="font-size: small">{{$item}}</h4>
             @endforeach
+        </section>
+    @endif
+    @if(session()->has('setting'))
+        <section class="col-6 offset-3 alert alert-danger" >
+            <h5 class="text-danger text-center" dir="rtl">
+                {{session('setting')}}
+            </h5>
         </section>
     @endif
     <section class="col-6 offset-3 mt-5">

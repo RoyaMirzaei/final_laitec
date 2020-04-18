@@ -31,13 +31,15 @@ class SettingController extends Controller
        $setting->keywords=$request->keywords;
        $setting->description=$request->description;
        $setting->save();
+        $comment="عملیات بارگذاری اطلاعات بدرستی انجام شد";
+        session()->flash('setting',$comment);
        return redirect()->route('setting.create');
     }
 
 
     public function show($setting)
     {
-       $setting=Setting::findorfail($setting);
+       $setting=Setting::findOrFail($setting);
        return $setting;
     }
 
@@ -48,7 +50,7 @@ class SettingController extends Controller
         $setting=Setting::where('id',$id)->first();
         $setting->delete();
         $comment="عملیات حذف بدرستی انجام شد";
-        session()->flash('delete',$comment);
+        session()->flash('setting',$comment);
         return back();
     }
 }
