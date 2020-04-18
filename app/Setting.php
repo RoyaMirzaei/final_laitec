@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Setting extends Model
 {
-   protected $fillable=['title','keywords','description','author'];
+  // protected $fillable=['title','keywords','description','author'];
 
 }

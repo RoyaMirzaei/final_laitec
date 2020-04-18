@@ -9,5 +9,5 @@ class Slider extends Model
 {
     use SoftDeletes;
     protected $data=['deleted_at'];
-    protected $fillable=['image','alt','caption'];
+    //protected $fillable=['image','alt','caption'];
 }

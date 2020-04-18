@@ -3,83 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\About;
+use App\Http\Requests\createRequestAbout;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $about = About::all();
+        return view('admin.about.index', compact('about'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.about.create');
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(createRequestAbout $request)
     {
-        //
+        $about = new About();
+        $about->font = $request->font;
+        $about->color = $request->color;
+        $about->about = $request->about;
+        $about->save();
+        $comment = "عملیات بارگزاری اطلاعات بدرستی انجام گرفت";
+        session()->flash('about', $comment);
+        return redirect()->route('about.create');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function show(About $about)
+
+    public function show($id)
     {
-        //
+        $about = About::findorfail($id);
+        return $about;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(About $about)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, About $about)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\About  $about
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(About $about)
-    {
-        //
+        About::destroy($id);
+        $comment = "عملیات حذف بدرستی انجام شد";
+        session()->flash('about', $comment);
+        return back();
     }
 }

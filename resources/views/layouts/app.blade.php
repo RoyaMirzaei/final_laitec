@@ -40,13 +40,13 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link"  target="_blank" href="{{route('setting.index')}}">setting</a>
+                            <a class="nav-link"  href="{{route('setting.index')}}">setting</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route(('slider.index'))}}">slider</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">about</a>
+                            <a class="nav-link" href="{{route(('about.index'))}}">about</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">contact</a>
