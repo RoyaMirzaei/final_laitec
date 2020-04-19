@@ -8,8 +8,9 @@
     <title>{{$item->title}}</title>
     <meta name="keywords" content="{{$item->keywords}}"/>
     <meta name="description" content="{{$item->description}}"/>
-    <meta name="author" content="{{$item->author}}"/>
+    <meta name="author" content="{{$item->author}}">
     @endforeach
+
    <!-- end setting for seo site -->
     <meta name="robots" content="index,follow"/>
       <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.css')}}">
@@ -17,6 +18,6 @@
     <link rel="stylesheet" href="{{asset('slider/engine1/style.css')}}">
     <link rel="stylesheet" href="{{asset('bootstrap/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('lightbox/dist/css/lumos.css')}}">
-
+    <link rel="stylesheet" href="{{asset('cssAdmin/syleNews.css')}}">
 </head>
 <body>

@@ -52,7 +52,7 @@
                             <a class="nav-link" href="{{route(('gallery.index'))}}">gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">contact</a>
+                            <a class="nav-link" href="{{route(('contact.index'))}}">contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"  target="_blank" href="{{route('shopping')}}">show_website</a>

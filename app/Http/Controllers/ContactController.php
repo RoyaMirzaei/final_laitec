@@ -3,83 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Http\Requests\createRequestContact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $contact=Contact::paginate(4);
+        return view('admin.contact.index',compact('contact'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(createRequestContact $request)
     {
-        //
+        $contact=new Contact();
+        $contact->fullname=$request->fullname;
+        $contact->email=$request->email;
+        $contact->comment=$request->comment;
+        $contact->save();
+        session()->flash('contact',"پیغام شما به درستی ارسال شد.");
+        return back();
+
+    }
+    public function show($id)
+    {
+        $contact=Contact::findOrFail($id);
+        return $contact;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Contact $contact)
+    public function destroy($contact)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Contact  $contact
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Contact $contact)
-    {
-        //
+        Contact::destroy($contact);
+        session()->flash('contact',"عملیات پاک کردن دیتا با موفقیت انجام شد.");
+        return back();
     }
 }

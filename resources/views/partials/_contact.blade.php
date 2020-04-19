@@ -4,8 +4,24 @@
             <h1 class="text-center text-capitalize">contact us</h1>
             <section class="borderContact mb-5"></section>
             <section class="row ml-0 mr-0">
+                @if(session()->has('contact'))
+                    <section class="col-6 offset-3 alert alert-danger">
+                        <h6 class="text-danger text-center" dir="rtl">
+                            {{session('contact')}}
+                        </h6>
+                    </section>
+                @endif
                 <section class="col-8 offset-2">
-                    <form action="" method="post">
+
+                        @if ($errors -> any())
+                            <section class="col-6  offset-3 mt-5 mb-5 bg-warning p-3" dir="rtl">
+                                @foreach($errors->all() as $item)
+                                    <h4 class="text-center text-black-50" style="font-size: small">{{$item}}</h4>
+                                @endforeach
+                            </section>
+                        @endif
+                    <Form action="{{route('contact.data')}}" method="post">
+                        @csrf
                         <section class="form-group">
                             <label for="fullname">fullname</label>
                             <input type="text" name="fullname" placeholder="please enter fullName?"
