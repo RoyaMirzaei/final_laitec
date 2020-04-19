@@ -12,6 +12,8 @@ Route::middleware('auth')->prefix('administrator')->group(function (){
     Route::resource('about','AboutController');
     Route::resource('gallery','GalleryController');
     Route::resource('contact','ContactController');
+    Route::resource('news','NewsController');
 
 });
 Route::post('/insertContact','ContactController@store')->name('contact.data');
+Route::get('/showNews','NewsController@indexSite')->name('news.show');

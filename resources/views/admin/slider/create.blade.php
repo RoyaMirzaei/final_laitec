@@ -37,3 +37,6 @@
         </section>
 
 @endsection
+@section('css')
+    <link href="{{asset('cssAdmin/style.css')}}" rel="stylesheet">
+@endsection

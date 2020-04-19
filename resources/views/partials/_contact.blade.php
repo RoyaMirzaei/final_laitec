@@ -29,7 +29,7 @@
                         </section>
                         <section class="form-group">
                             <label for="email">email</label>
-                            <input type="text" name="email" placeholder="please enter email?" class="form-control"
+                            <input type="email" name="email" placeholder="please enter email?" class="form-control"
                                    id="email">
                         </section>
                         <section class="form-group">
