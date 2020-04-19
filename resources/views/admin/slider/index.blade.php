@@ -1,13 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-        @if(session()->has('slider'))
-            <section class="col-6 offset-3 alert alert-danger" >
-                <h5 class="text-danger text-center" dir="rtl">
-                    {{session('slider')}}
-                </h5>
-            </section>
-        @endif
         <section class="col-6 offset-3 mt-3">
         <table class="table table-dark table-hover">
             <thead class="table table-info">

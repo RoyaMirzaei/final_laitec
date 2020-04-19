@@ -58,18 +58,19 @@ class SliderController extends Controller
        $slider=Slider::findorfail($id);
        $slider->caption=$request->caption;
        $slider->alt=$request->alt;
-       $file=$request->file('image');
-       if(!empty('$file')){
-           $deleteImage=$slider->image;
-           unlink('images/slider/'.$deleteImage);
-           $newimage=time().$file->getClientOriginalName();
-          $file->move('images/slider/',$newimage);
-          $slider->image=$newimage;
-       }
-       $slider->save();
-       $comment="عملیات ویرایش بدرستی انجام شد.";
-       session()->flash('slider',$comment);
-       return back();
+        $file=$request->file('image');
+        if (!empty($file)){
+            $deleteImage=$slider->image;
+            unlink('images/slider/'.$deleteImage);
+            $image=time().$file->getClientOriginalName();
+            $file->move('images/slider/',$image);
+            $slider->image=$image;
+        }
+        $slider->save();
+        $comment="اطلاعات ویرایش شده، بدرستی ذخیره شد.";
+        session()->flash('slider',$comment);
+        return back();
+
     }
 
     public function destroy( $id)

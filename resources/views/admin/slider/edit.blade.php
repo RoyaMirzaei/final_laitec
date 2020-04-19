@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <section class="col-6 offset-3 mt-3 ">
+
         @if(session()->has('slider'))
             <section class="col-6 offset-3 alert alert-danger" >
                 <h5 class="text-danger text-center" dir="rtl">
@@ -15,34 +15,31 @@
                 @endforeach
             </section>
         @endif
-
-        <Form action="{{route('slider.update',$slider->id)}}" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('put')
+        <section class="col-6 offset-3 mt-3 ">
+            {{ Form::model($slider,['route' => ['slider.update',$slider->id], 'method' => 'put','files'=>true])}}
             <section class="form-group">
-                <input type="text" name="caption" class="form-control"  value="{{$slider->caption}}">
+                {!! Form::text('caption', $slider->caption, ['class' => 'form-control']) !!}
             </section>
             <section class="form-group">
-                <input type="text" name="alt" class="form-control"  value="{{$slider->alt}}">
+                {!! Form::text('alt', $slider->alt, ['class' => 'form-control']) !!}
             </section>
-
-            <section class="form-group">
+            <section class="form-group" >
                 <tr>
-                    <td>
-                        <img src="{{asset('images/slider/'.$slider->image)}}" style="width: 100px;height: 70px" class="img-thumbnail">
-                    </td>
-                    <td>
-                        <input type="file" name="image" >
-                    </td>
-
+                    <td> <img src="{{asset('images/slider/'.$slider->image)}}"  class="img-thumbnail" style="width: 100px;height: 70px"></td>
+                    <td>{!! Form::file('image') !!}</td>
                 </tr>
 
 
             </section>
+            <hr>
             <section class="form-group">
-                <input type="submit" class="btn btn-success btn-block">
+                {!! Form::submit('submit', ['class' => 'form-control btn btn-success']) !!}
             </section>
-        </Form>
+
+            {{ Form::close() }}
+
+
+
         <a class="btn btn-info btn-block " href="{{route('slider.index')}}">come back</a>
     </section>
 

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<section class="col-6 offset-3 mt-3 ">
+
     @if ($errors -> any())
         <section class="col-6  offset-3 mt-5 mb-5 bg-warning p-3" dir="rtl">
             @foreach($errors->all() as $item)
@@ -8,16 +8,23 @@
             @endforeach
         </section>
     @endif
+        @if(session()->has('slider'))
+            <section class="col-6 offset-3 alert alert-danger" >
+                <h5 class="text-danger text-center" dir="rtl">
+                    {{session('slider')}}
+                </h5>
+            </section>
+        @endif
+    <section class="col-6 offset-3 mt-3 ">
 
             <Form action="{{route('slider.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <section class="form-group">
-                    <input type="text" name="caption" class="form-control" value="{{old('caption')}}" placeholder="please enter caption !">
+                    <input type="text" name="caption" class="form-control"  placeholder="please enter caption !">
                 </section>
                 <section class="form-group">
-                    <input type="text" name="alt" class="form-control" value="{{old('alt')}}" placeholder="please enter alt !">
+                    <input type="text" name="alt" class="form-control" placeholder="please enter alt !">
                 </section>
-
                 <section class="form-group">
                     <input type="file" name="image" class="form-control" >
                 </section>
