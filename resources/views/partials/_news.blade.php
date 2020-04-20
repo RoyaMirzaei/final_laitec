@@ -2,7 +2,7 @@
     <section class="row ml-0 mr-0">
         <section class="col-10 offset-1">
             <h1 class="text-center">News</h1>
-            <section class="borderGallery"></section>
+            <section class="border border-bottom-4 border-dark"></section>
             <section class="row ml-0 mr-0 mt-5">
                 <section class="col-10 offset-1 mb-2">
                     <section class="row ml-0 mr-0">

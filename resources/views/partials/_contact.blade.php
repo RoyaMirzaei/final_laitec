@@ -2,7 +2,7 @@
     <section class="row ml-0 mr-0">
         <section class="col-10 offset-1">
             <h1 class="text-center text-capitalize">contact us</h1>
-            <section class="borderContact mb-5"></section>
+            <section class="border border-bottom-4 border-dark"></section>
             <section class="row ml-0 mr-0">
                 @if(session()->has('contact'))
                     <section class="col-6 offset-3 alert alert-danger">
