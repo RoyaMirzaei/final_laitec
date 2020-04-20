@@ -14,22 +14,22 @@
             </h5>
         </section>
     @endif
-    <section class="col-6 offset-3 mt-5">
+    <section class="col-6 offset-3">
 
         {{ Form::open(['route' => 'news.store', 'method' => 'post','files'=>true])}}
 
         <section class="form-group">
-            {!! Form::text('title', 'please enter news header !', ['class' => 'form-control']) !!}
+            {!! Form::text('header', 'please enter news header !', ['class' => 'form-control']) !!}
         </section>
         <section class="form-group">
-            {!! Form::text('title', 'please enter alt image !', ['class' => 'form-control']) !!}
+            {!! Form::text('alt', 'please enter alt image !', ['class' => 'form-control']) !!}
         </section>
 
         <section class=" form-group">
             {!! Form::textarea('abstract','please enter news abstract !', ['class' => 'form-control','rows'=>3,'cols'=>50]) !!}
         </section>
         <section class="form-group">
-            {!! Form::textarea('description','please enter news details !', ['class' => 'form-control','rows'=>5,'cols'=>50]) !!}
+            {!! Form::textarea('details','please enter news details !', ['class' => 'form-control','rows'=>5,'cols'=>50]) !!}
         </section>
         <section class="form-group">
            {!! Form:: date('date','mounth/day/year',['class'=>'form-control'])!!}
@@ -44,8 +44,11 @@
 
         {{ Form::close() }}
 
-        <a class="btn btn-info btn-block " href="{{route('setting.index')}}">show details</a>
+        <a class="btn btn-info btn-block " href="{{route('news.index')}}">show details</a>
     </section>
+    <footer class="footer bg-dark navbar-dark fixed-bottom ">
+        <p class="mt-2 text-center text-white text-capitalize">design by .... &copy;2020</p>
+    </footer>
 @endsection
 @section('css')
     <link href="{{asset('cssAdmin/style.css')}}" rel="stylesheet">

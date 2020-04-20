@@ -18,6 +18,6 @@
     <link rel="stylesheet" href="{{asset('slider/engine1/style.css')}}">
     <link rel="stylesheet" href="{{asset('bootstrap/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('lightbox/dist/css/lumos.css')}}">
-    <link rel="stylesheet" href="{{asset('cssAdmin/syleNews.css')}}">
+    <link href="{{asset('cssAdmin/syleNews.css')}}" rel="stylesheet">
 </head>
 <body>

@@ -1,5 +1,5 @@
 
-<section class="slider">
+<section class="slider" id="slider">
     <section class="row ml-0 mr-0">
         <section class="col-12">
             <!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->

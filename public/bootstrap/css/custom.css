@@ -51,17 +51,23 @@ label{
 }
 input[type=text]{
     border: 2px inset lightgray;
-    text-align: center;
+
 }
 input[type=text]::placeholder{
     font-family: "Comic Sans MS";
 }
 textarea{
     border: 2px inset lightgray !important;
-    text-align: center;
     resize: none;
     height: 150px !important;
 }
+input[type=email]{
+    border: 2px inset lightgray;
+}
+input[type=email]::placeholder{
+    font-family: "Comic Sans MS";
+}
+
 textarea::placeholder{
 
     font-family: "Comic Sans MS";

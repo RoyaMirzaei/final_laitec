@@ -1,4 +1,4 @@
-<section class="contact">
+<section class="contact" id="contact">
     <section class="row ml-0 mr-0">
         <section class="col-10 offset-1">
             <h1 class="text-center text-capitalize">contact us</h1>

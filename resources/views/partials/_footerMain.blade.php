@@ -1,4 +1,4 @@
 <!--make footerMain-->
-<footer class="footer">
-    <p class="text-center text-capitalize">design by .... &copy;2019</p>
+<footer class="footer bg-dark">
+    <p class="text-center  text-white text-capitalize">design by .... &copy;2020</p>
 </footer>

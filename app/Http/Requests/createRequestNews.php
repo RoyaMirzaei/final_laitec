@@ -18,9 +18,9 @@ class createRequestNews extends FormRequest
             'header' => 'required|string|between:5,50',
             'alt' => 'required|string|between:5,50',
             'image' => 'required|max:5000|mimes:jpg,jpeg,png',
-            'abstract' => 'required|string|max:2000',
-            'details' => 'required|string|max:5000',
-            'date' =>  "required|string|size:8|date_format:d/m/y|after:today",
+            'abstract' => 'required|max:2000',
+            'details' => 'required|max:5000',
+            'date' =>  "required|string|size:10|before_or_equal:today",
         ];
     }
 
@@ -39,8 +39,8 @@ class createRequestNews extends FormRequest
             'details.required' => 'شرح خبر الزامی می باشد .',
             'details.max' => 'شرح خبر باید حدکثر 5000 کاراکتر باشد. ',
             'date.required' => 'تاریخ خبر الزامی می باشد .',
-            'date.date_format'=>'فرمت تاریخ باید بصورت سال/ ماه / روز وارد شود'
-
+            'date.size' => 'فرمت تاریخ را درست وارد نمایید باشد. ',
+            'date.before_or_equal'=> 'تاریخ مربوط به آینده می باشد. ',
         ];
     }
 }

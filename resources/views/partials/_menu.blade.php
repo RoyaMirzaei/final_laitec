@@ -8,19 +8,19 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Home</a>
+                    <a class="nav-link text-white" href="{{route('shopping')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" text-white href="#">about</a>
+                    <a class="nav-link text-white" text-white href="{{route('shopping')}}#about">about</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">gallery</a>
+                    <a class="nav-link text-white" href="{{route('shopping')}}#gallery">gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">contact</a>
+                    <a class="nav-link text-white" href="{{route('shopping')}}#contact">contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">news</a>
+                    <a class="nav-link text-white" href="{{route('shopping')}}#news">news</a>
                 </li>
             </ul>
         </div>

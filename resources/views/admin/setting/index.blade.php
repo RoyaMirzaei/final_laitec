@@ -42,5 +42,10 @@
                 <section class="col-12 offset-0">
                 <a href="{{route('setting.create')}}" class="btn btn-danger btn-block">create</a></section>
     </section>
-
+    <footer class="footer bg-dark navbar-dark fixed-bottom ">
+        <p class="mt-2 text-center text-white text-capitalize">design by .... &copy;2020</p>
+    </footer>
+@endsection
+@section('css')
+    <link href="{{asset('cssAdmin/style.css')}}" rel="stylesheet">
 @endsection

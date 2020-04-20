@@ -1,4 +1,4 @@
-<section class="gallery">
+<section class="gallery" id="gallery">
     <section class="row ml-0 mr-0">
         <section class="col-10 offset-1">
             <h1 class="text-center">Gallery</h1>
